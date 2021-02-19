@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     fun tira_dado(){
         if(tiros==0){
             mensaje.text = "Iniciar juego de dados, presiona el boton para tirar el dado para el player 1"
+            roll_dice.text = "Turno: Player 1"
         }
         roll_dice.setOnClickListener{
             tiros++
@@ -28,18 +29,21 @@ class MainActivity : AppCompatActivity() {
                 val rand = Random.nextInt(1, 6)
                 player1 = player1 + rand
                 mensaje.text = "El resultado del tiro fue: $rand, el global del player 1 es $player1. Presiona el boton para tirar el dado para el player 2"
+                roll_dice.text = "Turno: Player 2"
             }
             if(tiros==2 || tiros==4 || tiros==6){
                 mensaje.text = "Tiro del player 2"
                 val rand = Random.nextInt(1, 6)
                 player2 = player2 + rand
                 mensaje.text = "El resultado del tiro fue: $rand, el global del player 2 es $player2. Presiona el boton para tirar el dado para el player 1"
+                roll_dice.text = "Turno: Player 1"
             }
             if(tiros==6){
                 mensaje.text = "Tiro del player 2"
                 val rand = Random.nextInt(1, 6)
                 player2 = player2 + rand
                 mensaje.text = "El resultado del tiro fue: $rand, el global del player 2 es $player2. Presiona el boton para ver el ganador"
+                roll_dice.text = "Ver ganador"
             }
             if(tiros==7) {
                 var resultado = if (player1 > player2) {
@@ -50,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                     "Fue un empate"
                 }
                 mensaje.text = resultado
+                roll_dice.text = "Nuevo juego"
                 player1 = 0
                 player2 = 0
                 tiros = 0
