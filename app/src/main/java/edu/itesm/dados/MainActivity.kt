@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 mensaje.text = "El resultado del tiro fue: $rand, el global del player 1 es $player1. Presiona el boton para tirar el dado para el player 2"
                 roll_dice.text = "Turno: Player 2"
             }
-            if(tiros==2 || tiros==4 || tiros==6){
+            if(tiros==2 || tiros==4 ){
                 mensaje.text = "Tiro del player 2"
                 val rand = Random.nextInt(1, 6)
                 player2 = player2 + rand
